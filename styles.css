@@ -1,0 +1,112 @@
+@font-face {
+    font-family: BragaHuisRegular;
+    src: url('font/Braga_Huis/Braga_Huis_Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+:root {
+    --textDark: rgb(186,187,189);
+    --textLight: rgb(249,206,65);
+    --bgDark:rgb(58,58,60);
+    --bgLight:rgb(247,235,213);
+    --navFontSize:80px;
+    --transitionTme:0.6s;
+}
+
+*{
+    font-family: 'BragaHuisRegular';
+    margin: 0;
+    padding: 0;
+    font-weight: 50;
+    box-sizing: border-box;
+    color:var(--textDark);
+    font-size: var(--navFontSize);
+    letter-spacing: 20px;
+    
+}
+
+body{
+    background-color: var(--bgDark);
+    transition: 1s;
+
+}
+
+header{
+    position: sticky;
+    position: fixed;
+    width: 100%;
+    top:.3em;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: .2em;
+    padding-bottom: .2em;
+    padding-left: .5em;
+    padding-right: .5em;
+
+}
+
+ul, li, a{
+    letter-spacing: 10px;
+    text-decoration: none;
+    transition: var(--transitionTme);
+}
+
+.nav{
+    list-style: none;
+    
+}
+
+.nav li {
+    
+    display: inline-block;
+    padding-left: .2em;
+    padding-right: .2em;
+
+}
+
+.nav li a{
+    font-size: 60px!important;
+}
+
+a:hover{
+    letter-spacing: 20px;
+    color: var(--textLight);
+}
+
+.logo-text a{
+    letter-spacing: 24px;
+    transition: 1s;
+}
+
+.logo-text a:hover{
+    letter-spacing: 40px;
+    cursor: pointer;
+}
+
+.onoff{
+    margin-top: 3em;
+    margin-bottom: 1em;
+    vertical-align: middle;
+    text-align: center;
+    transition:2s;
+}
+
+.girl{
+    margin-bottom: 1em;
+    display: inline-block;
+    width: 20%; height: 20%;
+    content:url('./src/Girl_off.jpg');
+    transition: 3s;
+}
+
+.lightbulb{
+    width: 10%; height: 10%;
+}
+
+.lightbulb:hover{
+    cursor: pointer;
+}
+
