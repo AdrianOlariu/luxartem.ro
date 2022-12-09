@@ -10,14 +10,14 @@
     --textLight: rgb(249,206,65);
     --bgDark:rgb(58,58,60);
     --bgLight:rgb(247,235,213);
-    --navFontSize:80px;
+    --navFontSize:70px;
     --transitionTme:0.6s;
 }
 
 *{
     font-family: 'BragaHuisRegular';
-    margin: 0;
-    padding: 0;
+    /* margin: 0; */
+    /* padding: 0; */
     font-weight: 50;
     box-sizing: border-box;
     color:var(--textDark);
@@ -29,24 +29,38 @@
 body{
     background-color: var(--bgDark);
     transition: 1s;
-
 }
 
 header{
+    padding-bottom: 0.25em;
+    left: 5%;
+    right: 5%;
     position: sticky;
-    position: fixed;
-    width: 100%;
-    top:.3em;
+    /* position: fixed; */
+    width: 90%;
+    height: .6em!important;
+    top:.6em;
     background-color: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: .2em;
-    padding-bottom: .2em;
-    padding-left: .5em;
-    padding-right: .5em;
-
+    /* padding-top: .2em;
+    padding-bottom: .2em;*/
+    padding-left: .5em; 
+    padding-right: .5em; 
 }
+@media  (width < 1836px) {
+    header {
+        --navFontSize:64px;
+    }
+  }
+
+@media  (width < 1680px) {
+    header {
+        height: .9em!important;
+        --navFontSize:60px;
+    }
+  }
 
 ul, li, a{
     letter-spacing: 10px;
@@ -68,7 +82,7 @@ ul, li, a{
 }
 
 .nav li a{
-    font-size: 60px!important;
+    /* font-size: 60px!important; */
 }
 
 a:hover{
@@ -77,6 +91,7 @@ a:hover{
 }
 
 .logo-text a{
+    /* font-size: 80px!important; */
     letter-spacing: 24px;
     transition: 1s;
 }
@@ -97,13 +112,14 @@ a:hover{
 .girl{
     margin-bottom: 1em;
     display: inline-block;
-    width: 20%; height: 20%;
-    content:url('./src/Girl_off.jpg');
+    width: 50%; height: 50%;
+    content:url('./src/lithophane_girl_front_off.png');
     transition: 3s;
 }
 
 .lightbulb{
-    width: 10%; height: 10%;
+    width: 5%; height: 5%;
+    transition: 3s;
 }
 
 .lightbulb:hover{
