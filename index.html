@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="Refresh" content="0; url='http://127.0.0.1:58076'" /> -->
     <title>Luxartem</title>
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <header>
         <span class="logo-text">
-            <a href="#">luxartem </a>
+            <a class='luxartem' href="#">luxartem</a>
         </span>
         <ul class="nav">
+            <li><a href="#">home</a></li>
             <li><a href="#">shop</a></li>
             <li><a href="#">collaborations</a></li>
             <li><a href="#">about</a></li>
@@ -20,7 +22,7 @@
         </ul>
     </header>
 
-    <div id="content">
+    <div id="home">
         <div class="onoff">
             <div >
                 <img class="girl" src="./src/lithophane_girl_front_off.png">
@@ -30,10 +32,32 @@
             </div>
         </div>
     </div>
+
+    <div id="shop" >
+        <h1>SHOP</h1>
+        <h2>Products to be added</h2>
+    </div>
+
+    <div id="collaborations">
+        <h1>COLLABORATIONS</h1>
+        <h2>In Progress...</h2>
+    </div>
+
+    <div id="about">
+        <h1>ABOUT</h1>
+        <h2>My Shop :)</h2>
+    </div>
+
+    <div id="contact">
+        <h1>CONTACT</h1>
+        <h2>Adrian Olariu, ayyy!</h2>
+    </div>
+
     <div id="footer">
 
     </div>
     
+    <script defer src="./router.js"></script>
     <script defer src="./script.js"></script>
 </body>
 </html>

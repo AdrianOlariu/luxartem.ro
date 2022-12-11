@@ -7,9 +7,10 @@
 
 :root {
     --textDark: rgb(186,187,189);
-    --textLight: rgb(249,206,65);
+    --textLight: rgb(186,187,189);
+    --textHover: rgb(249,206,65);
     --bgDark:rgb(58,58,60);
-    --bgLight:rgb(247,235,213);
+    --bgLight:rgb(247, 235, 213);
     --navFontSize:70px;
     --transitionTme:0.6s;
 }
@@ -23,7 +24,6 @@
     color:var(--textDark);
     font-size: var(--navFontSize);
     letter-spacing: 20px;
-    
 }
 
 body{
@@ -53,56 +53,6 @@ header{
 
 }
 
-@media  (width < 1680px) {
-    header {
-        /* height: .9em!important; */
-        --navFontSize:60px;
-    }
-  }
-
-  @media screen 
-  and (device-width < 362px) 
-  and (device-height < 742px) 
-  and (-webkit-device-pixel-ratio: 4) 
-  and (orientation: portrait) {
-
-    header{
-        --navFontSize:20px;
-        position: sticky;
-        /* position: fixed; */
-        /* top:2em;  */
-        width: 10%;
-        left:1em;
-        height: 1em!important;
-        /* left:5%; */
-        width: 95%;
-        top:.6em;
-        background-color: black;
-        /* display: flex; */
-        /* justify-content: space-between; */
-        align-items: center;
-        /* padding-top: -.2em; */
-        /* padding-bottom: .2em; */
-        /* padding-left: .5em;
-        padding-right: .5em; */
-    
-    }
-
-    .girl{
-        margin-top: 1.6em;
-        margin-bottom: .8em;
-        display: inline-block;
-        width: 100%; height: 100%;
-        content:url('./src/lithophane_girl_front_off.png');
-        transition: 3s;
-    }
-    
-    .lightbulb{
-        width: 500%; height: 500%;
-        transition: 3s;
-    }
-}
-
 
 ul, li, a{
     letter-spacing: 10px;
@@ -129,10 +79,11 @@ ul, li, a{
 
 a:hover{
     letter-spacing: 20px;
-    color: var(--textLight);
+    color: var(--textHover);
 }
 
 .logo-text a{
+    
     letter-spacing: 24px;
     transition: 1s;
 }
@@ -140,6 +91,27 @@ a:hover{
 .logo-text a:hover{
     letter-spacing: 40px;
     cursor: pointer;
+}
+
+
+.hide{
+    display: none;
+}
+
+.section{
+    margin-top: 1.6em;
+    text-align: center;
+    
+}
+
+h1, h2{
+    color:var(--textLight);
+}
+
+h2 {
+    margin-top: 1em;
+    margin-left: 2em;
+    float:left
 }
 
 .onoff{
@@ -151,12 +123,11 @@ a:hover{
 }
 
 .girl{
-    margin-top: 1.6em;
     margin-bottom: .8em;
     display: inline-block;
-    width: 50%; height: 50%;
+    width: 45%;
     content:url('./src/lithophane_girl_front_off.png');
-    transition: 3s;
+    
 }
 
 .lightbulb{
@@ -166,5 +137,6 @@ a:hover{
 
 .lightbulb:hover{
     cursor: pointer;
+    content:url('./src/Light_on_768x768.png');
 }
 
