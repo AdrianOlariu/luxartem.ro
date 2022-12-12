@@ -10,9 +10,11 @@
     --textLight: rgb(186,187,189);
     --textHover: rgb(249,206,65);
     --bgDark:rgb(58,58,60);
-    --bgLight:rgb(247, 235, 213);
-    --navFontSize:70px;
-    --transitionTme:0.6s;
+    --bgLight:rgb(224, 211, 186);
+    --navFontSize:60px;
+    --transitionTme:0.4s;
+    --sepiaValue:70%;
+    --picture-scale-hover:80%;
 }
 
 *{
@@ -22,17 +24,21 @@
     font-weight: 50;
     box-sizing: border-box;
     color:var(--textDark);
-    font-size: var(--navFontSize);
-    letter-spacing: 20px;
+    font-size: 56px;
+    
 }
 
 body{
     background-color: var(--bgDark);
     transition: 1s;
+    color:var(--textLight);
 
 }
 
 header{
+    color:var(--textDark);
+    letter-spacing: 20px;
+    font-size: var(--navFontSize);
     position: sticky;
     /* position: fixed; */
     /* top:2em;  */
@@ -55,9 +61,14 @@ header{
 
 
 ul, li, a{
+    
     letter-spacing: 10px;
     text-decoration: none;
     transition: var(--transitionTme);
+}
+
+a{
+    cursor: pointer;
 }
 
 .nav{
@@ -101,10 +112,13 @@ a:hover{
 .section{
     margin-top: 1.6em;
     text-align: center;
-    
 }
 
-h1, h2{
+.section h1{
+    letter-spacing: 40px;
+}
+
+h1, h2, h3, h4, div, span, button{
     color:var(--textLight);
 }
 
@@ -139,4 +153,93 @@ h2 {
     cursor: pointer;
     content:url('./src/Light_on_768x768.png');
 }
+
+#shop h1{
+    margin-bottom: 1em;
+}
+
+.products{
+    margin-left:1.6em;
+    margin-bottom: 1em;
+    /* display:block; */
+}
+
+.product{
+    margin-bottom: 1.4em; 
+    display:inline-block;
+}
+
+.product .picture{
+    text-align: left;
+    float:left;
+    width:50%;   
+}
+
+.product .picture h3{
+    margin-bottom: 1em;
+}
+
+.product .picture img{
+    
+    width:80%;
+    filter: sepia(var(--sepiaValue));
+    transition:.6s;
+    /* margin-left: 2em; */
+}
+
+.product .picture img:hover{
+    cursor:pointer;
+    width:var(--picture-scale-hover);
+    
+    filter: drop-shadow(0 0 0.4rem var(--bgLight));
+    transition:.4s;
+    /* filter: sepia(0%); */
+    /* scale: 1.4em; */
+    /* margin-left: 2em; */
+}
+
+.product .details{
+    margin-top: 1em;
+    float: right;
+    width:50%;
+    
+}
+
+.product .details h4{
+    /* margin-bottom: 1em; */
+}
+
+.product .details .description{
+    text-align: left;
+    padding-left: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    /* border: 4px; */
+    border-style: dashed;
+}
+
+.product .product .details .description .category span{
+    float: right;
+}
+
+
+
+.product .details .actions{
+    margin-top: .4em;
+}
+.product .details .actions button{
+    float:right;
+    cursor: pointer;
+}
+
+.product .details .actions span{
+    float:left;
+}
+
+.product h2{
+    /* text-align: center; */
+}
+
+
+
 

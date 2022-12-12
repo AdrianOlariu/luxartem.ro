@@ -22,6 +22,9 @@ function lights(){
         document.body.style.backgroundColor = root.getPropertyValue('--bgLight');
         document.documentElement.style.setProperty('--textDark', 'rgb(255, 255, 255)');
         document.documentElement.style.setProperty('--textLight', 'rgb(0,0,0)');
+        document.documentElement.style.setProperty('--sepiaValue', '0%');
+        document.documentElement.style.setProperty('--picture-scale-hover', '85%');
+
     }else{
         girlPic.style.content='url(./src/lithophane_girl_front_off.png)';
 
@@ -29,6 +32,8 @@ function lights(){
         document.body.style.backgroundColor = root.getPropertyValue('--bgDark');
         document.documentElement.style.setProperty('--textDark', 'rgb(186,187,189)');
         document.documentElement.style.setProperty('--textLight', 'rgb(186,187,189)');
+        document.documentElement.style.setProperty('--sepiaValue', '70%');
+        document.documentElement.style.setProperty('--picture-scale-hover', '80%');
     }
 }
 

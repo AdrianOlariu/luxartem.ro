@@ -11,14 +11,14 @@
 <body>
     <header>
         <span class="logo-text">
-            <a class='luxartem' href="#">luxartem</a>
+            <a class='luxartem' >luxartem</a>
         </span>
         <ul class="nav">
             <li><a href="#">home</a></li>
             <li><a href="#">shop</a></li>
             <li><a href="#">collaborations</a></li>
-            <li><a href="#">about</a></li>
             <li><a href="#">contact</a></li>
+            <li><a href="#">cart</a></li>
         </ul>
     </header>
 
@@ -34,8 +34,40 @@
     </div>
 
     <div id="shop" >
-        <h1>SHOP</h1>
-        <h2>Products to be added</h2>
+        
+        <h1 >SHOP - mock up products for now</h1>
+        
+        <div id="products">
+
+            <div class="product">
+                <div class="picture">
+                    <div>
+                        <h3>poza printata 3d</h3>
+                        <img src="https://craftrum.eu/wp-content/uploads/2019/07/lithophane_LED.jpg">
+                    </div>
+                </div>
+                <div class="details">
+                    <div class="description">
+
+                        Poza printata 3d prin tehnica lithophane.<br>
+                        Dimensiuni: <br>
+                        - portret: 20cm X 14cm<br>
+                        - landscape: 18cm X 14cm | 17cm x 15cm<br><br>
+                        
+                        <div class="category">
+                            <span>categorie: <a>lampi</a></span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                            <span>Pret: 180 lei</span>
+                            <button>Adauga in cos</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
     </div>
 
     <div id="collaborations">
@@ -43,14 +75,15 @@
         <h2>In Progress...</h2>
     </div>
 
-    <div id="about">
+    <div id="contact">
         <h1>ABOUT</h1>
-        <h2>My Shop :)</h2>
+        <h2 style="float:left">Adrian Olariu, ayyy!</h2>
+        <h2 style="float:right; margin-right: 3em;">My Shop :)</h2>
     </div>
 
-    <div id="contact">
-        <h1>CONTACT</h1>
-        <h2>Adrian Olariu, ayyy!</h2>
+    <div id="cart">
+        <h1>CART</h1>
+        <h2>Products to be added!</h2>
     </div>
 
     <div id="footer">
@@ -59,5 +92,6 @@
     
     <script defer src="./router.js"></script>
     <script defer src="./script.js"></script>
+    <script defer src="./products.js"></script>
 </body>
 </html>
