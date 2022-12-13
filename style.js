@@ -1,9 +1,11 @@
 const girlPic = document.querySelector('.girl');
 const lightbulb = document.querySelector('.lightbulb');
 const luxartem = document.querySelector('.luxartem');
+const video = document.querySelector('.video-container');
 
 const rootCss = document.querySelector(':root');//get the variables created in the css file
 const root = getComputedStyle(rootCss);//process those variables
+
 
 initWebsite();
 
@@ -29,6 +31,7 @@ function lights(){
 }
 
 function darkTheme(){
+    
     girlPic.style.content='url(./src/lithophane_girl_front_off.png)';
     lightbulb.src='./src/Light_off_768x768.png';
     document.body.style.backgroundColor = root.getPropertyValue('--bgDark');
@@ -36,6 +39,8 @@ function darkTheme(){
     document.documentElement.style.setProperty('--textLight', 'rgb(186,187,189)');
     document.documentElement.style.setProperty('--sepiaValue', '70%');
     document.documentElement.style.setProperty('--picture-scale-hover', '80%');
+    video.style.animation = 'to-gray 2s';
+    video.style.filter = 'grayscale(100%)';
 }
 
 function lightTheme(){
@@ -46,6 +51,9 @@ function lightTheme(){
     document.documentElement.style.setProperty('--textLight', 'rgb(0,0,0)');
     document.documentElement.style.setProperty('--sepiaValue', '0%');
     document.documentElement.style.setProperty('--picture-scale-hover', '85%');
+    video.style.animation = 'to-color 2s';
+    video.style.filter = 'grayscale(0%)';
+
 }
 //Setam un cookie in care afisam de cate ori a rulat animatia cu breathing text logo.
 //Dupa ce animatia a rulat de X ori, nu mai rulam animatia
@@ -70,6 +78,7 @@ function breathingLUXARTEM(times, minutes){
 function initWebsite(){
     luxartemTheme();
     breathingLUXARTEM(3,30);
+    onScroll();
 }
 
 //salvam state-ul site-ului: on or off
@@ -80,4 +89,47 @@ function luxartemTheme(){
     }else{
         darkTheme();
     }
+}
+let scroolValue = parseInt(root.getPropertyValue('--scrollVideo'));
+let scroolPicture = parseInt(root.getPropertyValue('--scrollPicture'));
+console.log(scroolValue);
+function onScroll(){
+    
+    window.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        console.log('scroll');
+        onwheel = (event) => {
+            if(event.deltaY < 0){
+                for(let i = scroolValue; i < 51; i+=0.5){
+                    document.documentElement.style.setProperty('--scrollVideo', `${i}%`);
+                    console.log('smaller');
+                }
+
+                document.documentElement.style.setProperty('--scrollImage', `${0}%`);
+
+
+                // if(scroolValue < 51){
+                //     document.documentElement.style.setProperty('--scroll', `${scroolValue=50}%`);
+                //     console.log('bigger');
+                // }
+            }else{
+
+                for(let i = scroolValue; i > -85; i-=1){
+                    document.documentElement.style.setProperty('--scrollVideo', `${i}%`);
+
+                    console.log('smaller');
+                }
+
+                document.documentElement.style.setProperty('--scrollImage', `${45}%`);
+
+                // if(scroolValue > -85){
+                //     document.documentElement.style.setProperty('--scroll', `${scroolValue=-84}%`);
+                //     console.log('bigger');
+                // }
+                
+            }
+            console.log(event.deltaY); 
+        };
+    });
+
 }

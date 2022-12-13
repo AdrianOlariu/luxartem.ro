@@ -10,13 +10,16 @@
     --textLight: rgb(186,187,189);
     --textHover: rgb(249,206,65);
     --bgDark:rgb(58,58,60);
-    --bgLight:rgb(224, 211, 186);
+    --bgLight:rgb(255, 242, 219);
     --navFontSize:60px;
     --transitionTme:0.4s;
     --sepiaValue:70%;
     --picture-scale-hover:80%;
     --flickering:rgb(249,206,65);
     --logoTextAnimationType:3;
+    --scrollVideo:10%;
+    --scrollPicture:0%;
+    --grayscaleValue:100%;
 }
 
 *{
@@ -122,6 +125,7 @@ a:hover{
 .section{
     margin-top: 1.6em;
     text-align: center;
+    /* transform: translateX(0%) translateY(0%); */
 }
 
 .section h1{
@@ -144,6 +148,8 @@ h2 {
     vertical-align: middle;
     text-align: center;
     transition:2s;
+    transform: translateX(0%) translateY(var(--scrollImage));
+    
 }
 
 .girl{
@@ -162,6 +168,47 @@ h2 {
 .lightbulb:hover{
     cursor: pointer;
     content:url('./src/Light_on_768x768.png');
+}
+
+.video-container {
+    height: 60%;
+    /* width: 25%; */
+    /* overflow: hidden; */
+    position: fixed;
+  }
+  
+  @keyframes to-color {
+    from {filter: grayscale(100%);}
+    50% {filter: grayscale(50%);}
+    to {filter: grayscale(0%);}
+}
+
+@keyframes to-gray {
+    from {filter: grayscale(0%);}
+    50% {filter: grayscale(50%);}
+    to {filter: grayscale(100%);}
+}
+
+
+  .video-container video {
+    /* min-width: 25%; */
+    /* min-height: 50%; */
+    /* position: absolute; */
+    /* top: 50%; */
+
+    /* filter: grayscale(var(--grayscaleValue)); */
+    left: 50%;
+    transform: translateX(0%) translateY(var(--scrollVideo));
+    transition: 3.6s;
+  }
+  
+  /* Just styling the content of the div, the *magic* in the previous rules */
+  .video-container .caption {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  color: #dc0000;
+  padding: 10px;
 }
 
 #shop h1{
