@@ -16,7 +16,7 @@ let pages = [];
 const navLinks = document.querySelector('.nav');
 
 generateNavLinksSectionIDs(
-    () => showPage('shop')
+    () => showPage('home')
 )();
 
 function generateNavLinksSectionIDs(callback){

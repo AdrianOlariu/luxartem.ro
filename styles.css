@@ -15,6 +15,8 @@
     --transitionTme:0.4s;
     --sepiaValue:70%;
     --picture-scale-hover:80%;
+    --flickering:rgb(249,206,65);
+    --logoTextAnimationType:3;
 }
 
 *{
@@ -32,10 +34,10 @@ body{
     background-color: var(--bgDark);
     transition: 1s;
     color:var(--textLight);
-
 }
 
 header{
+    z-index:100;
     color:var(--textDark);
     letter-spacing: 20px;
     font-size: var(--navFontSize);
@@ -93,15 +95,23 @@ a:hover{
     color: var(--textHover);
 }
 
+@keyframes example {
+    from {color: var(--textDark);letter-spacing: 24px;}
+    50% {color: var(--textHover);letter-spacing: 28px;}
+    to {color: var(--textDark);letter-spacing: 24px;}
+}
+
 .logo-text a{
-    
     letter-spacing: 24px;
     transition: 1s;
+    animation: example 4s var(--logoTextAnimationType);
 }
 
 .logo-text a:hover{
-    letter-spacing: 40px;
+    letter-spacing: 40px!important;
     cursor: pointer;
+    transition: 1s;
+    color: var(--textHover)!important;
 }
 
 
