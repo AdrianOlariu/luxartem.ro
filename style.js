@@ -68,8 +68,8 @@ function breathingLUXARTEM(times, minutes){
 
 //cat dureaza pana expira cookie-ul
 function initWebsite(){
-    breathingLUXARTEM(3,30);
     luxartemTheme();
+    breathingLUXARTEM(3,30);
 }
 
 //salvam state-ul site-ului: on or off

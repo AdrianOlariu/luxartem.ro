@@ -16,7 +16,12 @@ let pages = [];
 const navLinks = document.querySelector('.nav');
 
 generateNavLinksSectionIDs(
-    () => showPage('home')
+    () => {
+            //dupa ce am generat pentru fiecare link un event listener corespunzator
+            //sectiunii pe care o afiseaza, apelam printr-un callback functia showPage.
+            //Daca exista vreoun cookie in care e salvat ultima pagina, il deschidem pe acela
+            showPage(cookieGetValue('page') ? cookieGetValue('page') : 'home');
+    }
 )();
 
 function generateNavLinksSectionIDs(callback){
@@ -35,6 +40,7 @@ function generateNavLinksSectionIDs(callback){
             val.lastChild.addEventListener('click', (e)=>{
                 e.preventDefault();
                 console.log('clicked',val.lastChild.textContent);
+                cookieSet('page', val.lastChild.textContent, 15);
                 showPage(val.lastChild.textContent);
             })
             pagesName.push(val.lastChild.textContent);
