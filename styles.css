@@ -9,6 +9,7 @@
     --textDark: rgb(186,187,189);
     --textLight: rgb(186,187,189);
     --textHover: rgb(249,206,65);
+    --textSelected: rgb(255, 234, 167);
     --bgDark:rgb(58,58,60);
     --bgLight:rgb(255, 242, 219);
     --navFontSize:60px;
@@ -126,6 +127,11 @@ a:hover{
     margin-top: 1.6em;
     text-align: center;
     /* transform: translateX(0%) translateY(0%); */
+    overflow: hidden;
+}
+
+.text-selected{
+    color:var(--textSelected);
 }
 
 .section h1{
@@ -149,7 +155,7 @@ h2 {
     text-align: center;
     transition:2s;
     transform: translateX(0%) translateY(var(--scrollImage));
-    
+    /* padding-bottom: .2em; */
 }
 
 .girl{
@@ -169,6 +175,28 @@ h2 {
     cursor: pointer;
     content:url('./src/Light_on_768x768.png');
 }
+
+@keyframes arrow-pointing {
+    from {transform: translateX(0%) translateY(0%);}
+    30% {transform: translateX(0%) translateY(-125%);}
+    to {transform: translateX(0%) translateY(0%);}
+}
+
+.arrow-down{
+    width:1em;
+    height:1em;
+    float:right;
+    margin-right: 4em;
+    /* transform: translateX(0%) translateY(-60%); */
+    animation: arrow-pointing 1.6s 4;
+}
+
+/* .div-arrow-down:hover{
+    cursor:pointer;
+    color:#dc0000;
+
+    animation: arrow-pointing 1s 5;
+} */
 
 .video-container {
     height: 60%;

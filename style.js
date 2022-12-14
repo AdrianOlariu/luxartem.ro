@@ -2,7 +2,7 @@ const girlPic = document.querySelector('.girl');
 const lightbulb = document.querySelector('.lightbulb');
 const luxartem = document.querySelector('.luxartem');
 const video = document.querySelector('.video-container');
-
+const arrowDown = document.querySelector('.arrow-down');
 const rootCss = document.querySelector(':root');//get the variables created in the css file
 const root = getComputedStyle(rootCss);//process those variables
 
@@ -103,9 +103,10 @@ function onScroll(){
                 for(let i = scroolValue; i < 51; i+=0.5){
                     document.documentElement.style.setProperty('--scrollVideo', `${i}%`);
                     console.log('smaller');
+                    arrowDown.classList.add('hide');
                 }
 
-                document.documentElement.style.setProperty('--scrollImage', `${0}%`);
+                // document.documentElement.style.setProperty('--scrollImage', `${0}%`);
 
 
                 // if(scroolValue < 51){
@@ -118,9 +119,10 @@ function onScroll(){
                     document.documentElement.style.setProperty('--scrollVideo', `${i}%`);
 
                     console.log('smaller');
+                    
                 }
 
-                document.documentElement.style.setProperty('--scrollImage', `${45}%`);
+                // document.documentElement.style.setProperty('--scrollImage', `${45}%`);
 
                 // if(scroolValue > -85){
                 //     document.documentElement.style.setProperty('--scroll', `${scroolValue=-84}%`);
