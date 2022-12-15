@@ -19,7 +19,7 @@
     --flickering:rgb(249,206,65);
     --logoTextAnimationType:3;
     /* --scrollVideo:15%; original */
-    --scrollVideo:-90%; 
+    --scrollVideo:15%; 
     --scrollPicture:0%;
     --grayscaleValue:100%;
 }
@@ -303,7 +303,7 @@ h2 {
     font-size: 1.6em;
     font-weight: 800;
     color:var(--textHover)!important;
-    animation:caption-video 40s infinite;
+    animation:caption-video 25s infinite;
 }
 
 #shop h1{

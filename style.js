@@ -20,7 +20,8 @@ lightbulb.parentElement.addEventListener('click', (e) =>{
     if(actions > 2 ){
         cookieSet('LightNight',true,60*24*7);
         divArrowUp.classList.add('hide');
-        if(parseInt(cookieGetValue('ScrolledDown')) < 2 || cookieGetValue('ScrolledDown') === null ){
+        console.log(cookieGetValue('ScrolledDown'));
+        if(parseInt(cookieGetValue('ScrolledDown')) < 2 || cookieGetValue('ScrolledDown') === undefined ){
             divArrowDown.classList.remove('hide');
         }
     }
