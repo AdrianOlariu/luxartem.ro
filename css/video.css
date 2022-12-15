@@ -1,0 +1,69 @@
+.video-container {
+    height: 100%;
+    /* width: 25%; */
+    /* overflow: hidden; */
+    position: fixed;
+    transform: translateX(0%) translateY(var(--scrollVideo));
+    transition: 3.6s;
+  }
+  
+  @keyframes to-color {
+    from {filter: grayscale(100%);}
+    50% {filter: grayscale(50%);}
+    to {filter: grayscale(0%);}
+}
+
+@keyframes to-gray {
+    from {filter: grayscale(0%);}
+    50% {filter: grayscale(50%);}
+    to {filter: grayscale(100%);}
+}
+
+
+  .video-container {
+    /* min-width: 25%; */
+    /* min-height: 50%; */
+    /* position: absolute; */
+    /* top: 50%; */
+    /* filter: grayscale(var(--grayscaleValue)); */
+    /* left: 50%; */
+  }
+
+  .video-container video{
+    z-index: 1;
+  }
+  
+  /* Just styling the content of the div, the *magic* in the previous rules */
+  .video-container .video-caption {
+  z-index: 0;
+  position: fixed;
+  text-align: center;
+  color: #dc0000;
+  /* text-align-last: center; */
+}
+
+@keyframes caption-video {
+    from {transform: translateX(100%) translateY(0%);}
+    /* 40% {transform: translateX(0%) translateY(00%);} */
+    to {transform: translateX(-500%) translateY(0%);}
+}
+
+.video-container .video-caption h2{
+    margin-top: 4em;
+    margin-bottom: 0.4em;
+    letter-spacing: 0.2em;
+    font-size: 1.6em;
+    font-weight: 800;
+    color:var(--textHover)!important;
+    animation:caption-video 25s infinite;
+}
+
+.video-container .type {
+  font-size: 1.6em;
+  font-weight: 800;
+  color:var(--textHover)!important;
+  z-index: 0;
+  position: fixed;
+  margin-top: 7em;
+  margin-left: 1.2em;
+}

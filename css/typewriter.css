@@ -1,0 +1,54 @@
+:root{
+    --nrOfLetters: 40;
+}
+
+.typewriter{
+    /* background: #333; */
+  /* padding-top: 5em; */
+  display: flex;
+  /* justify-content: center; */
+}
+
+.typewriter .type{
+    float:left;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+   margin: 0 auto; /*Gives that scrolling effect as the typing happens */
+  letter-spacing: .3em; /* Adjust as needed */
+  animation: 
+    typing 8s steps(40, end) infinite,
+    blink-caret .75s step-end infinite;
+}
+
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    60% { width: 90% }
+    to { width: 90% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--textSelected); }
+  }
+
+  .typewriter .typewriter-home{
+    float:left;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+   margin: 0 auto; /*Gives that scrolling effect as the typing happens */
+  letter-spacing: .3em; /* Adjust as needed */
+  animation: 
+  typing-home 8s steps(40, end) infinite,
+    blink-caret .75s step-end infinite;
+}
+
+  @keyframes typing-home {
+    from { width: 0 }
+    60% { width: 65% }
+    to { width: 65% }
+  }

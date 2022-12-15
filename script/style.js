@@ -63,8 +63,8 @@ function lights(){
 
 function darkTheme(){
     
-    girlPic.style.content='url(./src/lithophane_girl_front_off.png)';
-    lightbulb.src='./src/Light_off_768x768.png';
+    girlPic.style.content='url(../src/lithophane_girl_front_off.png)';
+    lightbulb.src='../src/Light_off_768x768.png';
     document.body.style.backgroundColor = root.getPropertyValue('--bgDark');
     document.documentElement.style.setProperty('--textDark', 'rgb(186,187,189)');
     document.documentElement.style.setProperty('--textLight', 'rgb(186,187,189)');
@@ -78,8 +78,8 @@ function darkTheme(){
 }
 
 function lightTheme(){
-    girlPic.style.content='url(./src/lithophane_girl_front_on4.png)';
-    lightbulb.src='./src/Light_on_768x768.png';
+    girlPic.style.content='url(../src/lithophane_girl_front_on4.png)';
+    lightbulb.src='../src/Light_on_768x768.png';
     document.body.style.backgroundColor = root.getPropertyValue('--bgLight');
     document.documentElement.style.setProperty('--textDark', 'rgb(255, 255, 255)');
     document.documentElement.style.setProperty('--textLight', 'rgb(0,0,0)');
