@@ -18,7 +18,8 @@
     --picture-scale-hover:80%;
     --flickering:rgb(249,206,65);
     --logoTextAnimationType:3;
-    --scrollVideo:10%;
+    /* --scrollVideo:15%; original */
+    --scrollVideo:-90%; 
     --scrollPicture:0%;
     --grayscaleValue:100%;
 }
@@ -53,7 +54,7 @@ header{
     /* height: 1em!important; */
     left:5%;
     width: 90%;
-    top:.6em;
+    top:.8em;
     background-color: black;
     display: flex;
     justify-content: space-between;
@@ -106,16 +107,31 @@ a:hover{
 }
 
 .logo-text a{
+    margin-left: .3em;
     letter-spacing: 24px;
     transition: 1s;
     animation: example 4s var(--logoTextAnimationType);
 }
 
 .logo-text a:hover{
+    margin-left: .4em;
     letter-spacing: 40px!important;
     cursor: pointer;
     transition: 1s;
     color: var(--textHover)!important;
+    
+}
+
+.lightbulb{
+    /* margin-bottom: 1em; */
+    width: 1em; height: 1em;
+    transition: 3s;
+    float:left;
+}
+
+.lightbulb:hover{
+    cursor: pointer;
+    content:url('./src/Light_on_768x768.png');
 }
 
 
@@ -162,35 +178,59 @@ h2 {
 .girl{
     
     margin-top: .8em;
-    margin-bottom: 1em;
+    /* margin-bottom: 0.2em; */
     /* display: inline-block; */
-    width: 45%;
+    width: 50%;
     content:url('./src/lithophane_girl_front_off.png');
     
 }
 
-.lightbulb{
-    /* margin-bottom: 1em; */
-    width: 1em; height: 1em;
-    transition: 3s;
-    float:left;
-}
-
-.lightbulb:hover{
-    cursor: pointer;
-    content:url('./src/Light_on_768x768.png');
-}
-
-@keyframes arrow-pointing {
+@keyframes arrow-pointing-down {
     from {transform: translateX(0%) translateY(0%);}
     30% {transform: translateX(0%) translateY(-125%);}
     to {transform: translateX(0%) translateY(0%);}
 }
 
-.div-arrow-down{
+@keyframes arrow-pointing-up {
+    from {transform: translateX(0%) translateY(0%);}
+    40% {transform: translateX(0%) translateY(-80%);}
+    to {transform: translateX(0%) translateY(0%);}
+}
+
+
+
+.div-arrow-up{
+    z-index: 2;
+    /* display: flex; */
+    /* margin-top: 0.2em; */
+    margin-left: 2.2em;
+    position: absolute;
     /* display: block; */
+    /* float:left; */
+}
+
+.light-or-night{
     float:right;
-    /* margin-right: 2em; */
+}
+
+.div-arrow-up span{
+    /* margin-top: 0.4em */
+    float:left;
+}
+
+.div-arrow-up .arrow-up{
+    width:1em;
+    height:1em;
+    /* transform: translateX(0%) translateY(-60%); */
+    animation: arrow-pointing-up 2s infinite;
+}
+
+
+.div-arrow-down{
+    
+    float:right;
+    /* position:fixed; */
+    /* margin-left: 2em; */
 }
 
 .div-arrow-down span{
@@ -202,7 +242,7 @@ h2 {
     height:1em;
     margin-right: 3em;
     /* transform: translateX(0%) translateY(-60%); */
-    animation: arrow-pointing 1.6s 4;
+    animation: arrow-pointing-down 1.6s 4;
 }
 
 
@@ -211,6 +251,8 @@ h2 {
     /* width: 25%; */
     /* overflow: hidden; */
     position: fixed;
+    transform: translateX(0%) translateY(var(--scrollVideo));
+    transition: 3.6s;
   }
   
   @keyframes to-color {
@@ -226,25 +268,42 @@ h2 {
 }
 
 
-  .video-container video {
+  .video-container {
     /* min-width: 25%; */
     /* min-height: 50%; */
     /* position: absolute; */
     /* top: 50%; */
-
     /* filter: grayscale(var(--grayscaleValue)); */
-    left: 50%;
-    transform: translateX(0%) translateY(var(--scrollVideo));
-    transition: 3.6s;
+    /* left: 50%; */
+  }
+
+  .video-container video{
+    z-index: 1;
   }
   
   /* Just styling the content of the div, the *magic* in the previous rules */
-  .video-container .caption {
-  z-index: 1;
-  position: relative;
+  .video-container .video-caption {
+  z-index: 0;
+  position: fixed;
   text-align: center;
   color: #dc0000;
-  padding: 10px;
+  /* text-align-last: center; */
+}
+
+@keyframes caption-video {
+    from {transform: translateX(100%) translateY(0%);}
+    /* 40% {transform: translateX(0%) translateY(00%);} */
+    to {transform: translateX(-500%) translateY(0%);}
+}
+
+.video-container .video-caption h2{
+    margin-top: 4em;
+    margin-bottom: 0.4em;
+    letter-spacing: 0.2em;
+    font-size: 1.6em;
+    font-weight: 800;
+    color:var(--textHover)!important;
+    animation:caption-video 40s infinite;
 }
 
 #shop h1{
