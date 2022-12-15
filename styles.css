@@ -106,16 +106,31 @@ a:hover{
 }
 
 .logo-text a{
+    margin-left: .3em;
     letter-spacing: 24px;
     transition: 1s;
     animation: example 4s var(--logoTextAnimationType);
 }
 
 .logo-text a:hover{
+    margin-left: .4em;
     letter-spacing: 40px!important;
     cursor: pointer;
     transition: 1s;
     color: var(--textHover)!important;
+    
+}
+
+.lightbulb{
+    /* margin-bottom: 1em; */
+    width: 1em; height: 1em;
+    transition: 3s;
+    float:left;
+}
+
+.lightbulb:hover{
+    cursor: pointer;
+    content:url('./src/Light_on_768x768.png');
 }
 
 
@@ -167,18 +182,6 @@ h2 {
     width: 45%;
     content:url('./src/lithophane_girl_front_off.png');
     
-}
-
-.lightbulb{
-    /* margin-bottom: 1em; */
-    width: 1em; height: 1em;
-    transition: 3s;
-    float:left;
-}
-
-.lightbulb:hover{
-    cursor: pointer;
-    content:url('./src/Light_on_768x768.png');
 }
 
 @keyframes arrow-pointing {
