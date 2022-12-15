@@ -131,7 +131,7 @@ a:hover{
 }
 
 .text-selected{
-    color:var(--textSelected);
+    color:var(--textSelected)!important;
 }
 
 .section h1{
@@ -156,19 +156,24 @@ h2 {
     transition:2s;
     transform: translateX(0%) translateY(var(--scrollImage));
     /* padding-bottom: .2em; */
+    
 }
 
 .girl{
-    margin-bottom: .8em;
-    display: inline-block;
+    
+    margin-top: .8em;
+    margin-bottom: 1em;
+    /* display: inline-block; */
     width: 45%;
     content:url('./src/lithophane_girl_front_off.png');
     
 }
 
 .lightbulb{
-    width: 5%; height: 5%;
+    /* margin-bottom: 1em; */
+    width: 1em; height: 1em;
     transition: 3s;
+    float:left;
 }
 
 .lightbulb:hover{
@@ -182,24 +187,27 @@ h2 {
     to {transform: translateX(0%) translateY(0%);}
 }
 
-.arrow-down{
+.div-arrow-down{
+    /* display: block; */
+    float:right;
+    /* margin-right: 2em; */
+}
+
+.div-arrow-down span{
+    margin-bottom: 4em;
+}
+
+.div-arrow-down .arrow-down{
     width:1em;
     height:1em;
-    float:right;
-    margin-right: 4em;
+    margin-right: 3em;
     /* transform: translateX(0%) translateY(-60%); */
     animation: arrow-pointing 1.6s 4;
 }
 
-/* .div-arrow-down:hover{
-    cursor:pointer;
-    color:#dc0000;
-
-    animation: arrow-pointing 1s 5;
-} */
 
 .video-container {
-    height: 60%;
+    height: 100%;
     /* width: 25%; */
     /* overflow: hidden; */
     position: fixed;

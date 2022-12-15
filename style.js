@@ -2,18 +2,17 @@ const girlPic = document.querySelector('.girl');
 const lightbulb = document.querySelector('.lightbulb');
 const luxartem = document.querySelector('.luxartem');
 const video = document.querySelector('.video-container');
-const arrowDown = document.querySelector('.arrow-down');
+const divArrowDown = document.querySelector('.div-arrow-down');
 const rootCss = document.querySelector(':root');//get the variables created in the css file
 const root = getComputedStyle(rootCss);//process those variables
 
-
 initWebsite();
 
-luxartem.addEventListener('click', (e)=>{
-    lights();
-});
+// luxartem.addEventListener('click', (e)=>{
+//     lights();
+// });
 
-lightbulb.addEventListener('click', (e) =>{
+lightbulb.parentElement.addEventListener('click', (e) =>{
     lights();
 });
 
@@ -41,6 +40,7 @@ function darkTheme(){
     document.documentElement.style.setProperty('--picture-scale-hover', '80%');
     video.style.animation = 'to-gray 2s';
     video.style.filter = 'grayscale(100%)';
+    highlightUnClicked(luxartem);
 }
 
 function lightTheme(){
@@ -53,6 +53,7 @@ function lightTheme(){
     document.documentElement.style.setProperty('--picture-scale-hover', '85%');
     video.style.animation = 'to-color 2s';
     video.style.filter = 'grayscale(0%)';
+    highlightClicked(luxartem);
 
 }
 //Setam un cookie in care afisam de cate ori a rulat animatia cu breathing text logo.
@@ -78,7 +79,8 @@ function breathingLUXARTEM(times, minutes){
 function initWebsite(){
     luxartemTheme();
     breathingLUXARTEM(3,30);
-    onScroll();
+    onScroll(video.parentElement);
+    console.log(video.parentElement);
 }
 
 //salvam state-ul site-ului: on or off
@@ -90,48 +92,70 @@ function luxartemTheme(){
         darkTheme();
     }
 }
+
 let scroolValue = parseInt(root.getPropertyValue('--scrollVideo'));
 let scroolPicture = parseInt(root.getPropertyValue('--scrollPicture'));
-console.log(scroolValue);
-function onScroll(){
-    
-    window.addEventListener('wheel', (e) => {
+
+function onScroll(element){
+    let scrolled = false;
+    element.addEventListener('wheel', (e) => {
         e.preventDefault();
         console.log('scroll');
         onwheel = (event) => {
-            if(event.deltaY < 0){
-                for(let i = scroolValue; i < 51; i+=0.5){
-                    document.documentElement.style.setProperty('--scrollVideo', `${i}%`);
-                    console.log('smaller');
-                    arrowDown.classList.add('hide');
+            if(!element.classList.contains('hide')){
+                if(scrolled){
+                    console.log('sageata ascunsa');
+                    divArrowDown.classList.add('hide');
                 }
+                if(event.deltaY < 0){
+                    for(let i = scroolValue; i < 51; i+=0.5){
+                        document.documentElement.style.setProperty('--scrollVideo', `${i}%`);
+                        
+                        
+                    }
+                    document.documentElement.style.setProperty('--scrollImage', `${0}%`);
+                    // if(scroolValue < 51){
+                    //     document.documentElement.style.setProperty('--scroll', `${scroolValue=50}%`);
+                    //     console.log('bigger');
+                    // }
+                    
+                }else{
 
-                // document.documentElement.style.setProperty('--scrollImage', `${0}%`);
+                    for(let i = scroolValue; i > -85; i-=1){
+                        scrolled = true;
+                        document.documentElement.style.setProperty('--scrollVideo', `${i}%`);
+                    }
 
-
-                // if(scroolValue < 51){
-                //     document.documentElement.style.setProperty('--scroll', `${scroolValue=50}%`);
-                //     console.log('bigger');
-                // }
-            }else{
-
-                for(let i = scroolValue; i > -85; i-=1){
-                    document.documentElement.style.setProperty('--scrollVideo', `${i}%`);
-
-                    console.log('smaller');
+                    document.documentElement.style.setProperty('--scrollImage', `${45}%`);
+                    scrolled = true;
+                    // if(scroolValue > -85){
+                    //     document.documentElement.style.setProperty('--scroll', `${scroolValue=-84}%`);
+                    //     console.log('bigger');
+                    // }
                     
                 }
-
-                // document.documentElement.style.setProperty('--scrollImage', `${45}%`);
-
-                // if(scroolValue > -85){
-                //     document.documentElement.style.setProperty('--scroll', `${scroolValue=-84}%`);
-                //     console.log('bigger');
-                // }
-                
             }
             console.log(event.deltaY); 
         };
     });
 
+}
+
+
+function highlightClicked(element){
+    element.classList.add('text-selected')
+}
+
+function highlightUnClicked(element){
+    element.classList.remove('text-selected')
+}
+
+function isHidden(el) {
+    var style = window.getComputedStyle(el);
+    return (style.display === 'none')
+}
+
+function findAncestorByClass (el, cls) {
+    while ((el = el.parentElement) && !el.classList.contains(cls));
+    return el;
 }

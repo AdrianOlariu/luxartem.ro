@@ -1,5 +1,3 @@
-console.log('products');
-
 let products = [
     {name:'lampa',price:'200', desc:'lampa ambientala lumina calda', 
     pic:'https://manubim.cdn.shoprenter.hu/custom/manubim/image/cache/w500h500wt1/product/3D-photo-lithophane/3d-f%C3%A9nyk%C3%A9p-litof%C3%A1n-l%C3%A1mpa.jpg', cat:'lampi'},

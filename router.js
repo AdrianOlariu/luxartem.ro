@@ -13,14 +13,19 @@
 
 
 let pages = [];
+let currentPage = cookieGetValue('page') ? cookieGetValue('page') : 'home'; 
 const navLinks = document.querySelector('.nav');
+
+
 
 generateNavLinksSectionIDs(
     () => {
             //dupa ce am generat pentru fiecare link un event listener corespunzator
             //sectiunii pe care o afiseaza, apelam printr-un callback functia showPage.
             //Daca exista vreoun cookie in care e salvat ultima pagina, il deschidem pe acela
-            showPage(cookieGetValue('page') ? cookieGetValue('page') : 'home');
+            
+            showPage(currentPage);
+            currentPageHighlight(navLinks, currentPage);
     }
 )();
 
@@ -32,14 +37,19 @@ function generateNavLinksSectionIDs(callback){
     // const contact = document.querySelector('#contact');
     // pages.push(home,shop,contact);
 
-    let pagesName = ['home'];//because this link does not exists in navlinks
+    let pagesName = [];
     navLinks.childNodes.forEach(val =>{
         if(val.lastChild != null){
-            console.log(val.lastChild);
-            val.lastChild.classList.add('section')
+            console.log('VAL',val);
+            val.lastChild.classList.add('section');
             val.lastChild.addEventListener('click', (e)=>{
                 e.preventDefault();
+                removeHighlightClicked(val.parentElement.childNodes);//we go up the nodes to the UL parent Element and get al its chidl nodes
+                console.log(val.parentElement.childNodes);
                 console.log('clicked',val.lastChild.textContent);
+                highlightClicked(val.lastChild);
+                // highlightNavLink(val, val.lastChild.textContent);
+
                 cookieSet('page', val.lastChild.textContent, 15);
                 showPage(val.lastChild.textContent);
             })
@@ -62,7 +72,35 @@ function showPage(pageName){
         pg.classList.add('hide');
         if(pg.id === pageName){
             pg.classList.remove('hide');
-            console.log(pg);
         }
     });
 }
+
+
+
+function removeHighlightClicked(elements){
+    elements.forEach(el => {
+        if(el.lastChild){
+            highlightUnClicked(el.lastChild);
+        }
+    });
+}
+
+function currentPageHighlight(navLinks, currentPage){
+    navLinks.childNodes.forEach(childNode => {
+    if(childNode.textContent === currentPage){
+        highlightClicked(childNode.lastChild);
+    };
+});
+}
+
+
+function highlightClicked(element){
+    element.classList.add('text-selected');
+}
+
+function highlightUnClicked(element){
+    element.classList.remove('text-selected');
+}
+
+
