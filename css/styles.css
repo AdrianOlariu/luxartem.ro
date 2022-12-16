@@ -200,7 +200,7 @@ h2 {
 
 
 .div-arrow-up{
-    z-index: 2;
+    z-index: 0;
     /* display: flex; */
     /* margin-top: 0.2em; */
     margin-left: 2.2em;

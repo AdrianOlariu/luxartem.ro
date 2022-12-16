@@ -7,7 +7,8 @@ const divArrowUp = document.querySelector('.div-arrow-up');
 const rootCss = document.querySelector(':root');//get the variables created in the css file
 const root = getComputedStyle(rootCss);//process those variables
 const lightOrNight = document.querySelector('.light-or-night');
-let actions = 0;
+let switchedTheme = 0;
+let ScrolledDown = 0;
 initWebsite();
 
 // luxartem.addEventListener('click', (e)=>{
@@ -15,13 +16,14 @@ initWebsite();
 // });
 
 lightbulb.parentElement.addEventListener('click', (e) =>{
-    lights();
-    actions += 1;
-    if(actions > 2 ){
+    
+    switchedTheme += 1;
+    lights(switchedTheme);
+    if(switchedTheme > 1 ){
         cookieSet('LightNight',true,60*24*7);
         divArrowUp.classList.add('hide');
         console.log(cookieGetValue('ScrolledDown'));
-        if(parseInt(cookieGetValue('ScrolledDown')) < 2 || cookieGetValue('ScrolledDown') === undefined ){
+        if(parseInt(cookieGetValue('ScrolledDown')) < 3 || cookieGetValue('ScrolledDown') === undefined ){
             divArrowDown.classList.remove('hide');
         }
     }
@@ -35,33 +37,30 @@ function hideGuideMessages(){
     //after the discovery of the switch system, the message scroll down appears.
     //after 3 scrolls, this message dissapears as well.
     //the value is saved in a cookie
-    if(cookieGetValue('LightNight') === 'true'){
-        divArrowUp.classList.add('hide');
-        divArrowDown.classList.remove('hide');
-    }else{
+    if(switchedTheme === 0){
+        // divArrowUp.classList.add('hide');
         divArrowDown.classList.add('hide');
+    }else{
+        divArrowDown.classList.remove('hide');
     }
 
     if(parseInt(cookieGetValue('ScrolledDown')) > 2){
         divArrowDown.classList.add('hide');
-        console.log(cookieGetValue('ScrolledDown'));
     }
 }
 
-function lights(){
+function lights(switchedTheme){
     if(lightbulb.src.includes('off')){
-        
-        lightTheme();
+        lightTheme(switchedTheme);
         cookieSet('luxartemTheme', 'light', 60*24*7);
     }else{
-        
-        darkTheme();
+        darkTheme(switchedTheme);
         cookieSet('luxartemTheme', 'dark', 60*24*7);
     
     }
 }
 
-function darkTheme(){
+function darkTheme(switchedTheme){
     
     girlPic.style.content='url(../src/lithophane_girl_front_off.png)';
     lightbulb.src='../src/Light_off_768x768.png';
@@ -70,14 +69,17 @@ function darkTheme(){
     document.documentElement.style.setProperty('--textLight', 'rgb(186,187,189)');
     document.documentElement.style.setProperty('--sepiaValue', '70%');
     document.documentElement.style.setProperty('--picture-scale-hover', '80%');
-    video.style.animation = 'to-gray 2s';
-    video.style.filter = 'grayscale(100%)';
+    if(switchedTheme > 0 && ScrolledDown > 0){
+        video.style.animation = 'to-gray 2s';
+        video.style.filter = 'grayscale(100%)';
+    }
+    
     highlightUnClicked(luxartem);
     lightOrNight.innerHTML = " light";
 
 }
 
-function lightTheme(){
+function lightTheme(switchedTheme){
     girlPic.style.content='url(../src/lithophane_girl_front_on4.png)';
     lightbulb.src='../src/Light_on_768x768.png';
     document.body.style.backgroundColor = root.getPropertyValue('--bgLight');
@@ -85,8 +87,11 @@ function lightTheme(){
     document.documentElement.style.setProperty('--textLight', 'rgb(0,0,0)');
     document.documentElement.style.setProperty('--sepiaValue', '0%');
     document.documentElement.style.setProperty('--picture-scale-hover', '85%');
-    video.style.animation = 'to-color 2s';
-    video.style.filter = 'grayscale(0%)';
+    if(switchedTheme > 0 && ScrolledDown > 0){
+        video.style.animation = 'to-color 2s';
+        video.style.filter = 'grayscale(0%)';
+    }
+    
     highlightClicked(luxartem);
     lightOrNight.innerHTML = " night";
 
@@ -134,14 +139,14 @@ let scroolValue = parseInt(root.getPropertyValue('--scrollVideo'));
 let scroolPicture = parseInt(root.getPropertyValue('--scrollPicture'));
 
 function onScroll(element){
-    let scrolled = false;
+    let scrolledCookieCounter = false;
     element.addEventListener('wheel', (e) => {
         e.preventDefault();
         console.log('scroll');
         onwheel = (event) => {
             if(!element.classList.contains('hide')){
                 
-                if(scrolled){
+                if(scrolledCookieCounter){
                     console.log('sageata ascunsa');
                     divArrowDown.classList.add('hide');
                     if(parseInt(cookieGetValue('ScrolledDown')) < 3 || !cookieGetValue('ScrolledDown')){
@@ -162,12 +167,13 @@ function onScroll(element){
                 }else{
 
                     for(let i = scroolValue; i > -95; i-=1){
-                        scrolled = true;
+                        // scrolledCookieCounter = true;
+                        ScrolledDown = true;
                         document.documentElement.style.setProperty('--scrollVideo', `${i}%`);
                     }
 
                     document.documentElement.style.setProperty('--scrollImage', `${45}%`);
-                    scrolled = true;
+                    scrolledCookieCounter = true;
                     // if(scroolValue > -85){
                     //     document.documentElement.style.setProperty('--scroll', `${scroolValue=-84}%`);
                     //     console.log('bigger');
